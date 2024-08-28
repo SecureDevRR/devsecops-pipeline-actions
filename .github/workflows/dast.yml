@@ -43,7 +43,7 @@ jobs:
         run: curl -s localhost:8080/echo?msg=Hello%20World!
      
       - name: Run ZAP OWASP full scan
-        uses: zaproxy/action-full-scan@v0.4.0
+        uses: zaproxy/action-full-scan@v0.10.0
         with:
           docker_name: 'zaproxy/zap-stable'
           token: ${{ secrets.GITHUB_TOKEN }}
@@ -61,3 +61,4 @@ jobs:
         if: always()
         run: |
           docker stop demoApp && docker rm demoApp && docker container prune --force && docker image prune --force
+
